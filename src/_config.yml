@@ -1,6 +1,6 @@
 # _config.yml
-title: CLI og kodding hjemmeside
-description: Litt introduksjon til CLI, script og ulike programspråk
+title: Stjerne
+description: Stjerne er et prosjekt som er 2.5 * 2.5 meter og henger på veggen
 markdown: gfm
 show_downloads: true
 # Hente inn css fra leap-day som gir en form for TOC og navigering
