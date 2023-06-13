@@ -1,0 +1,26 @@
+---
+---
+
+@import "{{ site.theme }}";
+footer {
+    left:40%;
+  }
+
+section {
+  width:790px;
+}  
+
+nav {
+  text-align: right;
+
+  ul {
+    font-size: 11px;
+
+    li {
+
+      line-height: 12px;
+
+    }
+
+  }
+}  
