@@ -1,7 +1,7 @@
 # MD-file for the diagram in WokWi.
 ```json
 {
-  "version": 1,
+  "version": 1.01,
   "author": "Kvadraturen vgs",
   "editor": "wokwi",
   "parts": [
