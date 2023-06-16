@@ -52,7 +52,8 @@ unsigned long FWRounds = 0;
 unsigned long timerDelay = 1000;
 
 unsigned long timer = 0; // millis() % 100000;
-
+unsigned long timer2 = timer; // Information counter
+unsigned long timerMax = 110000;
 /* Declaring functions ************************************************************
 */
 
@@ -94,21 +95,6 @@ void setup() {
 
 } // end setup
 
-void statetester ()  {
-  if (state == HIGH) {
-    FWRounds++;
-    // Check if button has been pressed giving an interrrupt
-    // Initiates the "fireworks"
-    state = LOW;
-    Serial.print("\nLoop firework ");
-    Serial.print("nr:\t"); Serial.print(FWRounds); Serial.print("\t");
-    mai17();
-    state = LOW;
-    // firework(4);
-
-  }
-
-}
 /* loop function ************************************************************
 */
 void loop() {
@@ -118,6 +104,10 @@ void loop() {
   // Svært mye av koden er ekstra i denne versjonen. Det er tatt med så en har noen alternativer til å teste med.
 
   timer = millis() % 100000;
+  timer2 = timer;
+  if (timer2 > 1e5) {
+    timer2 = timer;
+  }
 
   statetester();
 
@@ -153,17 +143,14 @@ void loop() {
   if (timer < 20000) {
     statetester();
     Serial.print("1/4");
-    Serial.print(" " + String(timer * 1e-3) + " sek \n" );
+    Serial.print(" \t\t\t" + String(timer * 1e-3) + " sek \n" );
     // CRGB(255,0,0);  CRGB(180, 85, 0);  CRGB(255,255,0);
     // CRGB(0,128,0);  CRGB(0, 0, 255); CRGB(46, 0, 46  );
-    // CRGB(238, 130, 238);  CRGB(149, 88, 184)
+    // CRGB(238, 130, 238);  CRGB(149, 88, 184)  CRGB(44, 43, 43);
 
-    // Test med Design05(). Kommenteres bort etterhvert og kan plasseres i en annen tids.seksjon med tanke på timer
-    // Design05wrapper();
-    statetester();
 
     // Her er ulike design blandet litt "tilfeldig" for å eksperimentere med ulike mønster.
-    // Det er ikke meningen endelig versjon skal se slik ut, og fyrverkerikanppen gjør ikke så mye pr nå.
+    // Det er ikke meningen endelig versjon skal se slik ut, og fyrverkerikanppen lager det norske flagget pr nå.
 
     // Seksjon 1
     delay(PAUSE_TIME1);    Design01(255, 0, 0);    // Rød
@@ -177,6 +164,12 @@ void loop() {
     statetester(); Design04RB1(  0, 128,   0, 3, 6); // Grønn
     statetester(); Design04RB1(  0,   0, 255, 4, 6); // Blå
     // Design04RB1( 46,   0,  46, 5, 6); // Lilla Dersom siste Design01 var lilla over
+
+    // Test med Design05(). Kommenteres bort etterhvert og kan plasseres i en annen tids.seksjon med tanke på timer
+    // NB slik koden er nå kan dette føre til ikke alle deler kjøres. 1/4, 2/4, 3/4, 4/4 og 5 av 4. Fikse logikken senere
+    Design05wrapper();
+    statetester();
+
 
     // Seksjon 2
     delay(PAUSE_TIME1);    Design01(255, 255, 0);  // Gul
@@ -192,9 +185,11 @@ void loop() {
     statetester();
     delay(PAUSE_TIME1 * 8);
     // Seksjon 3
-    delay(PAUSE_TIME1);    Design01(0, 0, 255);    // Blå    delay(PAUSE_TIME1);    //Design01(238, 130, 238); // Hvit
-    delay(PAUSE_TIME1);    Design01(46, 0, 46);   // Lilla     delay(PAUSE_TIME1); //     Design01(149, 88, 184);   // Rosa
-    delay(PAUSE_TIME1);
+    // Design03RB10();
+    statetester();
+    //delay(PAUSE_TIME1);    Design01(0, 0, 255);    // Blå    delay(PAUSE_TIME1);    //Design01(238, 130, 238); // Hvit
+    delay(PAUSE_TIME1);    Design01(46, 96, 46);   // Eksperimentere med denne. Planen er å lage et lerret til neste sekvens (Grå bakgrunn??)
+    delay(PAUSE_TIME1*2);
 
     // Seksjon 3.5
     statetester(); Design04RB3(255,   0,   0, 0, 6); // Rød
@@ -245,7 +240,7 @@ void loop() {
     // Det bør lages en "wrapper-funksjon" for fyrverkeri-knappen slik at ikke all logikk er i loop.
 
     Serial.print("2/4");
-    Serial.print(" " + String(timer * 1e-3) + " sek \n" ); // Serial.print("\n == Design02 1== ");
+    Serial.print(" \t\t\t" + String(timer * 1e-3) + " sek \n" ); // Serial.print("\n == Design02 1== ");
     statetester(); Design02(128, 128, 0);   // Gul
     Design03RB10(); // Denne  Lager de seks fargene med ti og ti LED.
     delay(PAUSE_TIME1 * 4);
@@ -260,11 +255,11 @@ void loop() {
     Design03RB10();
   }
 
-  if ( (40000 < timer) && (timer < 50000) ) {
+  if ( (40000 < timer) && (timer < 55000) ) {
     statetester();
 
     Serial.print("3/4");
-    Serial.print(" " + String(timer * 1e-3) + " sek \n" );
+    Serial.print(" \t\t\t" + String(timer * 1e-3) + " sek \n" );
     /*
       Design03(255, 255, 0); // Gul
       Design03(0, 255, 255); // Cyan
@@ -281,9 +276,9 @@ void loop() {
 
   }
 
-  if ( (50000 < timer) && (timer < 70000) ) {
+  if ( (55000 < timer) && (timer < 70000) ) {
     Serial.print("4/4");
-    Serial.print(" " + String(timer * 1e-3) + " sek \n" );
+    Serial.print(" \t\t\t" + String(timer * 1e-3) + " sek \n" );
     /*  Noen tester med andre farger
         Design04(255, 0, 0);   // Rød        Design04(255, 127, 0); // Gul
         Design04(255, 255, 0); // Gul        Design04(127, 255, 0); // Gul
@@ -306,9 +301,10 @@ void loop() {
     // Design03RB10();
 
   }
+
   if (75000 < timer && (timer < 99000) ) {
     Serial.print("5/4");
-    Serial.print(" " + String(timer * 1e-3) + " sek \n" );
+    Serial.print(" \t\t\t" + String(timer * 1e-3) + " sek \n" );
 
     CRGB(127, 0, 0); CRGB(0, 127, 0);
     //Design 05(127,   0, 255, 255, 127,   0); // Rosa, Gul
@@ -333,15 +329,44 @@ void loop() {
     Design03RB10();
     delay(PAUSE_TIME1 * 8);
 
+    Serial.print(" S \t\t\t" + String(timer * 1e-3) + " sek \n" );
+    if ( timer2 > 1.02e5) timer2 = timer;
+    // Uten denne endringen kan timer2 brukes til å telle videre etter syklus er resatt, som kan være interessant.
+    Serial.print(" E \t\t\t" + String(timer * 1e-3) + " sek \n" );
   }
+
+
+} // end loop
+
+
+
+void statetester ()  {
+  // This function is added all over the program to let the program react to any button press
+  // with as little delay as possible. After this the program continues the current section, and then restarts
+  // state is set as low all othere places than in the changestate ISR function
+  // timer2 = millis() % 1e5;
+  timer2 = millis() % 100000;
+
+  if (state == HIGH) {
+    FWRounds++;
+    // Check if button has been pressed giving an interrrupt
+    // Initiates the "fireworks"
+    state = LOW;
+    Serial.print("\nLoop \"fireworks\" ");
+    Serial.print("nr:\t"); Serial.print(FWRounds); Serial.print("\t");
+    mai17();
+    state = LOW;
+    // firework(4);
+
+  }
+
 }
 
 
-// unsigned long timer = millis() % 100000;
 void Design01(int R, int G, int B) { // Normal
   statetester();
   Serial.print(" == Design01 == "); // En og en farge
-  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== \n");
+  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== " + String (timer2 * 1e-3) + " sek\n");
   for (int k = 0; k < strips; k++) {
     for (int i = 0; i < NUM_LEDS; i++) {
       leds[k][i] = CRGB(R, G, B);// FastLED.show();
@@ -353,7 +378,7 @@ void Design01(int R, int G, int B) { // Normal
 void Design02(int R, int G, int B) { // Dissolve
   statetester();
   Serial.print(" == Design02 == "); // Oppløsing av det som ble vist før. Muligens bruke andre farger i loop.
-  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== \n");
+  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== " + String (timer2 * 1e-3) + " sek\n");
   for (int y = 20; y > 0; y--) {
     for (int a = 30; a > 0; a--) {
       leds[random(0, strips)][random(0, NUM_LEDS)] = CRGB(R, G, B);
@@ -366,7 +391,7 @@ void Design02(int R, int G, int B) { // Dissolve
 void Design03(int R, int G, int B) { // Swipe CCW (slow)
   statetester();
   Serial.print(" == Design03 == "); // Vifte. Retning med klokken. Evt legge inn lengre pauser
-  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== \n");
+  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== " + String (timer2 * 1e-3) + " sek\n");
 
   for (int k = strips - 1; k > -1; k--) {
     for (int i = 0; i < NUM_LEDS; i += 1) {
@@ -381,7 +406,7 @@ void Design03(int R, int G, int B) { // Swipe CCW (slow)
 void Design03RB10() {
   statetester();
 
-  Serial.print(" == Design03RB10 == Rainbow colours\n"); // En og en farge utover
+  Serial.print(" == Design03RB10 == Rainbow colours \t== " + String (timer2 * 1e-3) + " sek\n"); // En og en farge utover
   // Serial.print("" + String(R2) +   ", " + String (G2)  +   ", " + String (B2) +   " == \n");
 
   CRGB(255, 0, 0);    // Rød
@@ -466,7 +491,7 @@ void Design03RB10() {
 void Design04(int R, int G, int B) { // Swipe fast
   statetester();
   Serial.print(" == Design04 == "); // Vifte. Retning med klokken. Ingen pause
-  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== \n");
+  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== " + String (timer2 * 1e-3) + " sek\n");
   for (int k = 0; k < strips; k++) {
     for (int i = 0; i < NUM_LEDS; i++) {
       leds[k][i] = CRGB(R, G, B);
@@ -480,7 +505,7 @@ void Design04RB1(int R, int G, int B, int start, int step) { // Spiler
   statetester();
   // NB, ikke helt som tenkt, men artig møsnter så beholder denne
   Serial.print(" == Design04RB1 == ");
-  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== \n");
+  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== " + String (timer2 * 1e-3) + " sek\n");
 
 
 
@@ -501,7 +526,7 @@ void Design04RB2(int R, int G, int B, int start, int step) { // Swipe fast
   // NB, ikke helt som tenkt, men artig møsnter så beholder denne
   // Og enda en variant
   Serial.print(" == Design04RB2 == ");
-  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== \n");
+  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== " + String (timer2 * 1e-3) + " sek\n");
 
   for (int k = start; k < strips; k += step) {
     for (int i = 0; i < NUM_LEDS; i++) {
@@ -514,7 +539,7 @@ void Design04RB2(int R, int G, int B, int start, int step) { // Swipe fast
 
 void Design04RB3(int R, int G, int B, int start, int step) { // LED spread
   Serial.print(" == Design04RB3 == "); // Hver sjette LED lyses opp
-  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== \n");
+  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== " + String (timer2 * 1e-3) + " sek\n");
 
   for (int i = start; i < NUM_LEDS; i += step) {
     statetester();
@@ -545,6 +570,7 @@ void Design05wrapper() {
   // Rød til Rosa // CRGB(0, 128, 0); CRGB(238, 130, 238);
 
 }
+
 String  fTPrint(int tallet, int decimals = 0) {
   // Denne legger til 00 eller "  " før hvert tall om det er mindre enn 10 eller 100
   String pad = "";
@@ -559,9 +585,10 @@ String  fTPrint(int tallet, int decimals = 0) {
 
 
 }
+
 void Design05(int R, int G, int B, int R2, int G2, int B2) { // Fade half
   statetester();
-  Serial.print(" == Design05 == Trenger nok litt mer arbeid for å være effektfull\n");
+  Serial.print(" == Design05 == Trenger nok litt mer arbeid for å være effektfull " + String (timer2 * 1e-3) + " sek\n");
 
   //Denne funskjonen er fin til å finne RGB-verdier som gir ønskede farger, og så har den en litt interessant effekt
 
@@ -570,14 +597,14 @@ void Design05(int R, int G, int B, int R2, int G2, int B2) { // Fade half
   float B_Increment = abs(B - B2) / 10;
 
   Serial.print("RGB fra:     " + String(R) +  "  \t" + String (G)  +   "  \t" + String (B) +   " \t==  \n");
-  Serial.print("RGB til:     " + String(R2) + "  \t" + String (G2)  +  "  \t" + String (B2) +   " \t== \n");
-  Serial.print("Differanse:  " + String(R_Increment, 0) +   "  \t" + String (G_Increment, 0)  +   "  \t" + String (B_Increment, 0) +   " \t== \n");
+  Serial.print("RGB til:     " + String(R2) + "  \t" + String (G2)  +  "  \t" + String (B2) +   " \t== " + String (timer2 * 1e-3) + " sek\n");
+  Serial.print("Differanse:  " + String(R_Increment, 0) +   "  \t" + String (G_Increment, 0)  +   "  \t" + String (B_Increment, 0) +   " \t== " + String (timer2 * 1e-3) + " sek\n");
 
 
   /* Serial.print("\n\n"); // Test med pad om tallene er mindre enn 10 og 100. Ikke i mål enda
     Serial.print("RGB fra:     " + fTPrint(R) +  "  \t" + fTPrint (G)  +   "  \t" + fTPrint (B) +   " \t==  \n");
-    Serial.print("RGB til:     " + fTPrint(R2) + "  \t" + fTPrint (G2)  +  "  \t" + fTPrint (B2) +   " \t== \n");
-    Serial.print("Differanse:  " + fTPrint(R_Increment,0) +   "  \t" + fTPrint (G_Increment,0)  +   "  \t" + fTPrint (B_Increment,0) +   " \t== \n");
+    Serial.print("RGB til:     " + fTPrint(R2) + "  \t" + fTPrint (G2)  +  "  \t" + fTPrint (B2) +   " \t== " + String (timer2*1e-3) + " sek\n");
+    Serial.print("Differanse:  " + fTPrint(R_Increment,0) +   "  \t" + fTPrint (G_Increment,0)  +   "  \t" + fTPrint (B_Increment,0) +   " \t== " + String (timer2*1e-3) + " sek\n");
   */
   // Kan starte på RGB-verdier som er 0, men det gir svart farge i starten.
   float currentR = 0;
@@ -675,7 +702,7 @@ void changestate() {
   state = HIGH;
 }
 
-// Mye gammel kode fra tidligere versjoner av stjerne. kanskje noe inspirasjon kan hentes herfra.
+
 void mai17() {
   // Create a pattern
   Serial.print("\nFyrverkeri:\n");
@@ -690,7 +717,7 @@ void mai17() {
 
   //Design6(0, 0, 220, 0, 255, 170, 160, 255, 170);Serial.println("\nD6 a H B R | H R B"); // B H R
   //Design6(160, 255, 170, 0, 0, 220, 0, 255, 170);Serial.println("\nD6 b B R H | B H R"); // R B H
-  Design6(0, 255, 170, 160, 255, 170, 0, 0, 220);Serial.println("\nD6 c R H B | R B H"); // H R B
+  Design6(0, 255, 170, 160, 255, 170, 0, 0, 220); Serial.println("\nD6 c R H B | R B H"); // H R B
 
   //wrapperResetFlag();
 
@@ -700,7 +727,10 @@ void mai17() {
   Serial.print("\nFyrverkeri er over\n");
   // FastLED.clear();
   state = LOW;
+
 }
+
+// Mye gammel kode fra tidligere versjoner av stjerne. kanskje noe inspirasjon kan hentes herfra.
 
 void redDesign1(int Hue, int Sat, int Val) {
   // Eksperimenter med FastLED.show(); og verdier for å få ønsket effekt
@@ -1105,10 +1135,10 @@ void firework(uint8_t launch_strip = 8, uint8_t firework_range = 50, uint8_t fir
   //Launch Firework Effect
   FastLED.clear();
   for (int stage = NUM_LEDS; int(stage) >= 0 ; stage--) {
-    leds[launch_strip][stage] = CHSV(10, 0, 100);
-    leds[launch_strip][laststage] = CHSV(10, 20, 100);
+    leds[launch_strip][stage]      = CHSV(10,  0, 100);
+    leds[launch_strip][laststage]  = CHSV(10, 20, 100);
     leds[launch_strip][laststage2] = CHSV(10, 10, 100);
-    leds[launch_strip][laststage3] = CHSV(10, 0, 100);
+    leds[launch_strip][laststage3] = CHSV(10,  0, 100);
     FastLED.show();
 
     laststage3 = laststage2;
@@ -1129,9 +1159,9 @@ void firework(uint8_t launch_strip = 8, uint8_t firework_range = 50, uint8_t fir
   for (int stage = 0; int(stage) / 55 < 1; stage++) {
     for (int currentstrip = strips - 1; currentstrip >= 0; currentstrip--) {
       if (range[currentstrip] >= stage) {
-        leds[currentstrip][stage].red = palettefireworks[stage / (firework_range / 4)][0] + random(-10, 10);
+        leds[currentstrip][stage].red   = palettefireworks[stage / (firework_range / 4)][0] + random(-10, 10);
         leds[currentstrip][stage].green = palettefireworks[stage / (firework_range / 4)][1] + random(-10, 10);
-        leds[currentstrip][stage].blue = palettefireworks[stage / (firework_range / 4)][2] + random(-10, 10);
+        leds[currentstrip][stage].blue  = palettefireworks[stage / (firework_range / 4)][2] + random(-10, 10);
         //leds[currentstrip][stage] = CRGB::Red;
         //leds[i][laststage2] = CRGB::Black;
       }
@@ -1142,8 +1172,8 @@ void firework(uint8_t launch_strip = 8, uint8_t firework_range = 50, uint8_t fir
     laststage2 = laststage;
     laststage = stage;
 
-
   }
+
   /*for(int y = 40; y > 0; y--){
     for(int a = 10; a > 0; a--){
     leds[random(1,16)][random(20,50)] = CHSV(0, 0, 0);
@@ -1171,6 +1201,8 @@ void dissolve() {
 
 // Ved knappetrykk så legge inn state-testing flere steder så evt kode kan avbrytes.
 // Noen av kjøringene tar litt lang tid å kjøre før evt interrrupt blir benyttet.
+
+
 ///// OLD
 /* old files
 
@@ -1261,15 +1293,17 @@ void dissolve() {
 */
 
 
-/* Mengder av farger som kan benyttes. NB alle virker ikke som de skal med LED-striper
-  NB, siden funksjonen CRGB er benyttet utenfor loop eller setup er alt kommentert for å ikke gi feilmeldinger
-*/
 
 //////// FARGER
-/*
+/* Mengder av farger som kan benyttes. NB alle virker ikke som de skal med LED-striper.
+  Tidvis blir fargen hvit, og oransje er vanskelig å skape, det samme kan lilla være.
+*/
+void farger() {
 
   // Regnbuefarger, som er benytttet flere steder. Det virker som OK valg med LED/stripene
   // NB ikke testet på ordinær Mega eller ESP32
+  // Ignorer hvordan fargen vises i kode, og sjekk om ønsket resultat er på LED-striper.
+
   CRGB(255, 0,   0);  // Rød
   CRGB(180, 85,  0);  // Oransje lys CRGB(75, 55, 0);  // Oransje mørk
   CRGB(255, 255, 0);  // Gul
@@ -1279,15 +1313,16 @@ void dissolve() {
 
 
   // CRGB(75,0,130);
-  // CRGB(233, 18, 18); CRGB(235, 113, 21); B
+  // CRGB(233, 18, 18);  CRGB(235, 113, 21); B
   // CRGB(229, 233, 15); CRGB(26, 225, 26); G
-  // CRGB(18, 18, 228)B;// CRGB::
+  // CRGB(18, 18, 228)B; // CRGB::Brown
+
   // CRGB::Red CRGB::Orange CRGB::Yellow
   // CRGB::Green CRGB::Blue CRGB::Violet
 
-    CRGB(127, 0, 0); CRGB(0, 127, 0);
-    CRGB(127, 0, 255); CRGB(255, 127, 0);
-    CRGB(250, 0, 0); CRGB(0, 250, 0);
+  // CRGB(127, 0, 0);   CRGB(0, 127, 0);
+  // CRGB(127, 0, 255); CRGB(255, 127, 0);
+  // CRGB(250, 0, 0);   CRGB(0, 250, 0);
 
 
   // CRGB(255,0,0);
@@ -1346,6 +1381,7 @@ void dissolve() {
   // CRGB(57, 203, 28);
   // CRGB(79, 203, 211);
   // CRGB(79, 203, 211);
+
   // Design05(127,   0, 255, 255, 127,   0); // Rosa, Gul
   // Design05(250,   0,   0,   0, 250,   0); // Rød, Grønn
   // Design2(0, 0, 220);
@@ -1357,4 +1393,6 @@ void dissolve() {
   // Design5(160, 255, 170, 0, 0, 220, 0, 255, 170);
   // Flagg(0, 255, 155, 160, 255, 170, 0, 0, 220);
   // Flagg(0, 255, 170, 160, 255, 170, 0, 0, 220);
-*/
+
+
+}

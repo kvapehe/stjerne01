@@ -7,5 +7,8 @@ Note when following the links make sure you open the link in a new tab if desire
 https://annuel2.framapad.org/p/kvaelektronikk
 
 ## WokWi
-[]()
+[Regnbuemønster https://wokwi.com/projects/367353720435774465](https://wokwi.com/projects/367353720435774465)
+
+
 <!-- src/mega2560/pattern_red_green_christmas -->
+
