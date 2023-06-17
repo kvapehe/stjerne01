@@ -156,76 +156,77 @@ void loop() {
     delay(PAUSE_TIME1);    Design01(255, 0, 0);    // Rød
     // delay(PAUSE_TIME1);    Design01(0, 10 , 0);    // Grøn
     wrapperResetFlag();
-    delay(PAUSE_TIME1*4);    
+    delay(PAUSE_TIME1 * 4);
 
-/*
-delay(PAUSE_TIME1);    Design01(0, 60, 10);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 60, 15);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 60, 20);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 60, 25);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 60, 30);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 60, 35);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 60, 40);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 60, 45);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 70, 10);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 70, 15);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 70, 20);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 70, 25);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 70, 30);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 70, 35);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 70, 40);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 70, 45);    // Grøn
+    /*
+      delay(PAUSE_TIME1);    Design01(0, 60, 10);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 60, 15);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 60, 20);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 60, 25);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 60, 30);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 60, 35);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 60, 40);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 60, 45);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 70, 10);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 70, 15);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 70, 20);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 70, 25);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 70, 30);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 70, 35);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 70, 40);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 70, 45);    // Grøn
 
-delay(PAUSE_TIME1);    Design01(0, 20 , 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 30 , 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 40 , 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 50 , 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 60 , 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 70 , 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 80 , 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 90 , 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 100, 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 110, 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 120, 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 130, 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 140, 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 150, 0);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 160, 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 20 , 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 30 , 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 40 , 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 50 , 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 60 , 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 70 , 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 80 , 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 90 , 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 100, 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 110, 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 120, 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 130, 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 140, 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 150, 0);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 160, 0);    // Grøn
 
-delay(PAUSE_TIME1);    Design04(0, 40, 10);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 40, 15);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 40, 20);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 40, 25);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 50, 30);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 50, 35);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 50, 40);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 50, 45);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 50, 50);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 60, 55);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 60, 60);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 60, 65);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 60, 70);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 60, 75);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 70, 80);    // Grøn
-delay(PAUSE_TIME1);    Design01(0, 70, 85);    // Grøn
-*/
-    
-    
+      delay(PAUSE_TIME1);    Design04(0, 40, 10);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 40, 15);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 40, 20);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 40, 25);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 50, 30);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 50, 35);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 50, 40);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 50, 45);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 50, 50);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 60, 55);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 60, 60);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 60, 65);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 60, 70);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 60, 75);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 70, 80);    // Grøn
+      delay(PAUSE_TIME1);    Design01(0, 70, 85);    // Grøn
+    */
+
+
     // delay(PAUSE_TIME1);    Design01(180, 85, 0);   // Oransje lys delay(PAUSE_TIME1); Design01(75, 55, 0);  // Oransje mørk
     // delay(PAUSE_TIME1);    Design01(46, 0, 46  );  // Lilla
 
     // Seksjon 1.5
     statetester(); Design04RB1(255,   0,   0, 0, 4); // Rød
-    // statetester(); Design04RB1(180,  85,   0, 1, 6); // Oransje
+
     statetester(); Design04RB1(  0,  70,  20, 1, 4); // Grønn
     statetester(); Design04RB1( 80, 110,   0, 2, 4); // Gul
-        statetester(); Design04RB1(  0,   0, 255, 3, 4); // Blå
+    statetester(); Design04RB1(  0,   0, 255, 3, 4); // Blå
+    // statetester(); Design04RB1(180,  85,   0, 1, 6); // Oransje
     // Design04RB1( 46,   0,  46, 5, 6); // Lilla Dersom siste Design01 var lilla over
-    delay(PAUSE_TIME1*2); 
+    delay(PAUSE_TIME1 * 2);
 
     // Test med Design05(). Kommenteres bort etterhvert og kan plasseres i en annen tids.seksjon med tanke på timer
     // NB slik koden er nå kan dette føre til ikke alle deler kjøres. 1/4, 2/4, 3/4, 4/4 og 5 av 4. Fikse logikken senere
-    Design05wrapper();
+    // Design05wrapper();
     statetester();
 
 
@@ -233,12 +234,17 @@ delay(PAUSE_TIME1);    Design01(0, 70, 85);    // Grøn
     delay(PAUSE_TIME1);    Design01(80, 110,   0);  // Gul
     delay(PAUSE_TIME1);    Design01(0,  70,  20);    //Grønn
 
+
+    // 2, 2, 2, 2 = 8
+    statetester(); Design04RB3(255,   0,   0, 0, 8); // Rød
+    statetester(); Design04RB3(  0,  70,  20, 2, 8); // Grønn
+    statetester(); Design04RB3( 80, 110,   0, 4, 8); // Gul
+    statetester(); Design04RB3(  0,   0, 255, 6, 8); // Blå
+
     // Seksjon 2.5
-    delay(PAUSE_TIME1); Design04RB2(255,   0,   0, 0, 4); // Rød      CRGB(255, 0, 0);
+    Design04wrapper();
+
     // delay(PAUSE_TIME1); Design04RB2(180,  85,   0, 1, 4); // Oransje
-    delay(PAUSE_TIME1); Design04RB2(  0,  70,  20, 1, 4); // Grønn    CRGB(0,128,0);
-    delay(PAUSE_TIME1); Design04RB2( 80, 110,   0, 2, 4); // Gul      CRGB(80,100,0);    
-    delay(PAUSE_TIME1); Design04RB2(  0,   0, 255, 3, 4); // Blå      CRGB(0, 0, 255);
     // delay(PAUSE_TIME1); Design04RB2( 46,   0,  46, 5, 4); // Lilla
     statetester();
     delay(PAUSE_TIME1 * 8);
@@ -249,28 +255,20 @@ delay(PAUSE_TIME1);    Design01(0, 70, 85);    // Grøn
     delay(PAUSE_TIME1);    Design01(46, 96, 46);   // Eksperimentere med denne. Planen er å lage et lerret til neste sekvens (Grå bakgrunn??)
     delay(PAUSE_TIME1 * 2);
 
+    Design01(46, 96, 46);
     // Seksjon 3.5
-    statetester(); Design04RB3(255,   0,   0, 0, 4); // Rød
-    // statetester(); Design04RB3(180,  85,   0, 1, 6); // Oransje
-    statetester(); Design04RB3(  0,  70,  20, 1, 4); // Grønn
-    statetester(); Design04RB3( 80, 110,   0, 2, 4); // Gul
-        statetester(); Design04RB3(  0,   0, 255, 3, 4); // Blå
-    // statetester(); Design04RB3( 46,   0,  46, 5, 6); // Lilla
-
-    /* Bruk av koden, kommentert bort for nå.
-        Design04RBx(int R, int G, int B, int start, int step); // Rød
-        Design04RB2(int R, int G, int B, int start, int step); // Oransje
-        Design04RB2(int R, int G, int B, int start, int step); // Gul
-        Design04RB2(int R, int G, int B, int start, int step); // Grønn
-        Design04RB2(int R, int G, int B, int start, int step); // Blå
-        Design04RB2(int R, int G, int B, int start, int step); // Lilla
-    */
+    // 3, 3, 3, 3 = 12
+    statetester(); Design04RB4(255,   0,   0, 0, 12); // Rød
+    statetester(); Design04RB4(  0,  70,  20, 3, 12); // Grønn
+    statetester(); Design04RB4( 80, 110,   0, 6, 12); // Gul
+    statetester(); Design04RB4(  0,   0, 255, 9, 12); // Blå
 
     delay(PAUSE_TIME1 * 3); // ca 1200 ms pause (test)
     statetester();
     Design03RB10(); // Denne  Lager de 4 fargene med 15 og 15 LED.
     statetester();
     delay(PAUSE_TIME1 * 4);
+
 
     /* Koden med Design05 trenger muligens litt mer arbeid før den virker.
       se på Serial Print for litt mer informasjon, hva den gjør.
@@ -325,7 +323,7 @@ delay(PAUSE_TIME1);    Design01(0, 70, 85);    // Grøn
     */
 
     Design03(255, 0,   0);  // Rød
-    // Design03(180, 85,  0);  // Oransje lys delay(PAUSE_TIME1); Design03(75, 55, 0);  // Oransje mørk    
+    // Design03(180, 85,  0);  // Oransje lys delay(PAUSE_TIME1); Design03(75, 55, 0);  // Oransje mørk
     Design03(0,  70,  20);  // Grønn
     Design03(80, 110,   0);  // Gul
     Design03(0, 0, 255  );  // Blå    delay(PAUSE_TIME1);  // Design03(238, 130, 238); // Hvit
@@ -352,7 +350,7 @@ delay(PAUSE_TIME1);    Design01(0, 70, 85);    // Grøn
     Design04(255, 0,   0);  // Rød
     // Design04(180, 85,  0);  // Oransje lys delay(PAUSE_TIME1); Design03(75, 55, 0);  // Oransje mørk
     Design04(0,  70,  20);  // Grønn
-        Design04(80, 110,   0);  // Gul
+    Design04(80, 110,   0);  // Gul
     Design04(0, 0, 255  );  // Blå    delay(PAUSE_TIME1);  // Design03(238, 130, 238); // Hvit
     // Design04(46, 0, 46  );  // Lilla  delay(PAUSE_TIME1);  // Design03(149, 88, 184);   // Rosa
 
@@ -501,7 +499,7 @@ void Design03RB10() {
     //delay(delayShort);
     }
   */
-    startLed += step;
+  startLed += step;
   endLed += step; // Alternativ endLed = startLed + step;
 
   for (int i = startLed; i < endLed; i++) {
@@ -607,11 +605,64 @@ void Design04RB3(int R, int G, int B, int start, int step) { // LED spread
     for (int k = 0; k < strips; k++ ) {
       statetester();
       leds[k][i] = CRGB(R, G, B);
+      leds[k][i + 1] = CRGB(R, G, B);
+      //leds[k][i+2] = CRGB(R, G, B);
+      //leds[k][i+3] = CRGB(R, G, B);
       // FastLED.show();
     } FastLED.show();
   }
   // delay(PAUSE_TIME4*5);
 }
+
+void Design04RB4(int R, int G, int B, int start, int step) { // LED spread
+  Serial.print(" == Design04RB4 == "); // Hver sjette LED lyses opp
+  Serial.print("RGB: " + String(R) +   ", " + String (G)  +   ", " + String (B) +   " \t== " + String (timer2 * 1e-3) + " sek\n");
+
+  for (int i = start; i < NUM_LEDS; i += step) {
+    statetester();
+    for (int k = 0; k < strips; k++ ) {
+      statetester();
+      leds[k][i] = CRGB(R, G, B);
+      leds[k][i + 1] = CRGB(R, G, B);
+      leds[k][i + 2] = CRGB(R, G, B);
+      //leds[k][i+3] = CRGB(R, G, B);
+      // FastLED.show();
+    } FastLED.show();
+  }
+  // delay(PAUSE_TIME4*5);
+}
+
+void Design04wrapper() {
+  // Run for one round. May be changed later
+  for (int counter = 0; counter < 1; counter++) {
+
+    delay(PAUSE_TIME1); Design04RB2(255,   0,   0, 0, 4); // Rød      CRGB(255, 0, 0);
+    delay(PAUSE_TIME1); Design04RB2(  0,  70,  20, 1, 4); // Grønn    CRGB(0,128,0);
+    delay(PAUSE_TIME1); Design04RB2( 80, 110,   0, 2, 4); // Gul      CRGB(80,100,0);
+    delay(PAUSE_TIME1); Design04RB2(  0,   0, 255, 3, 4); // Blå      CRGB(0, 0, 255);
+    statetester();
+
+    delay(PAUSE_TIME1); Design04RB2(255,   0,   0, 1, 4); // Rød      CRGB(255, 0, 0);
+    delay(PAUSE_TIME1); Design04RB2(  0,  70,  20, 2, 4); // Grønn    CRGB(0,128,0);
+    delay(PAUSE_TIME1); Design04RB2( 80, 110,   0, 3, 4); // Gul      CRGB(80,100,0);
+    delay(PAUSE_TIME1); Design04RB2(  0,   0, 255, 0, 4); // Blå      CRGB(0, 0, 255);
+    statetester();
+
+    delay(PAUSE_TIME1); Design04RB2(255,   0,   0, 2, 4); // Rød      CRGB(255, 0, 0);
+    delay(PAUSE_TIME1); Design04RB2(  0,  70,  20, 3, 4); // Grønn    CRGB(0,128,0);
+    delay(PAUSE_TIME1); Design04RB2( 80, 110,   0, 0, 4); // Gul      CRGB(80,100,0);
+    delay(PAUSE_TIME1); Design04RB2(  0,   0, 255, 1, 4); // Blå      CRGB(0, 0, 255);
+    statetester();
+
+    delay(PAUSE_TIME1); Design04RB2(255,   0,   0, 3, 4); // Rød      CRGB(255, 0, 0);
+    delay(PAUSE_TIME1); Design04RB2(  0,  70,  20, 0, 4); // Grønn    CRGB(0,128,0);
+    delay(PAUSE_TIME1); Design04RB2( 80, 110,   0, 1, 4); // Gul      CRGB(80,100,0);
+    delay(PAUSE_TIME1); Design04RB2(  0,   0, 255, 2, 4); // Blå      CRGB(0, 0, 255);
+    statetester();
+  }
+
+}
+
 
 void Design05wrapper() {
   statetester();
